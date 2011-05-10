@@ -79,7 +79,7 @@ see below if it were written in Ruby.
 
 In this example, we've used a freshly created Ruby object as a building block
 and imbued it with the behaviors of a combination lock by defining
-certain functions on it. Each function performs a procedure, possibly doing some
+certain methods on it. Each method performs a procedure, possibly doing some
 manipulation of the object's internal data, such as its locked status or stored
 password. However, looking at the implementation is a bit like looking at the
 tumblers of a mechanical lock: it tells you a lot about how it works, but isn't
@@ -91,8 +91,9 @@ glimpse of how it is implemented.
 While we're only scratching the surface with this trivial example, the benefits
 of being able to separate the concept of an interface from its implementation
 are vast. For example, we could swap out our implementation that stored
-passwords in plain text with one that uses a cryptographic hash function without
-ever having to change the interface code, as illustrated in the example below.
+passwords in plain text with one that uses cryptographic hashes
+without ever having to change the interface code, as illustrated in the 
+example below.
 
     ###########################
     # Crypto-combination lock #
