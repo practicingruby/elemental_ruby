@@ -1,4 +1,4 @@
-gem "bookie", ">= 0.0.11"
+gem "bookie", ">= 0.0.12"
 require "bookie"
 
 MANUSCRIPT_DIR = "#{File.dirname(__FILE__)}/manuscript/"
