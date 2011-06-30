@@ -84,7 +84,7 @@ manipulation of the object's internal data, such as its locked status or stored
 password. However, looking at the implementation is a bit like looking at the
 tumblers of a mechanical lock: it tells you a lot about how it works, but isn't
 particularly good at illustrating how the object ought to be used. Conversely,
-if we look at the code that interfaces with the combo_lock object, we are able
+if we look at the code that interfaces with the `combo_lock` object, we are able
 to see a whole lot about how it's meant to be used without catching even a
 glimpse of how it is implemented.
 

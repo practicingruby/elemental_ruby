@@ -33,7 +33,7 @@ below will do the trick.
 At this point, the methods that implement the combo lock behavior all live
 inside the Locklike module, but are not directly callable yet. In order to
 actually use them, they need to be mixed into at least one object. Every Ruby object
-provides an extend() method for this purpose, and you can see the basic idea of how 
+provides an `extend` method for this purpose, and you can see the basic idea of how 
 it works through the following example.
 
     combo_lock_a = Object.new
@@ -75,13 +75,13 @@ as shown in the example below.
     require "open-uri"
     puts open("http://google.com").read #=> outputs the page source
 
-By patching the globally available open() method, open-uri extends a familiar
+By patching the globally available `open` method, open-uri extends a familiar
 API to give it some new functionality. To do this in a natural way, open-uri
 uses another standard library, stringio, to emulate the behavior of a file
-handle. That's where the read() method comes from in the example above.
+handle. That's where the `read` method comes from in the example above.
 
 While what we've seen so far is useful as-is, open-uri goes a step farther by
-extending the StringIO objects it creates with context-specific metadata,
+extending the `StringIO` objects it creates with context-specific metadata,
 some of which is shown in the following irb session.
 
     >> page = open("http://google.com")
@@ -93,10 +93,10 @@ some of which is shown in the following irb session.
     >> page.status
     => ["200", "OK"]
 
-Since the purpose of StringIO is simply to allow you to represent a string as an
+Since the purpose of `StringIO` is simply to allow you to represent a string as an
 IO like object, it's pretty clear that these http specific methods are not
-implemented on StringIO objects directly. Instead, they come from a module that
-adds some attribute accessors for this purpose, called OpenURI::Meta. The
+implemented on `StringIO` objects directly. Instead, they come from a module that
+adds some attribute accessors for this purpose, called `OpenURI::Meta`. The
 following code demonstrates how to implement this sort of design.
 
     module Meta
@@ -110,11 +110,11 @@ following code demonstrates how to implement this sort of design.
     puts page.base_uri  #=> "http://example.com"
     puts page.read      #=> "Hello World"
 
-The only thing new here is the use of attr_accessor, a method provided by
+The only thing new here is the use of `attr_accessor`, a method provided by
 modules that can be used for defining simple accessor methods without typing
 them out explicitly. We won't get bogged down in the details of how that works
 now, so the important thing to take away from this example is that the rest of
-what's going on here exactly mirrors our Locklike example, in which a bit of new
+what's going on here exactly mirrors our `Locklike` example, in which a bit of new
 functionality is being mixed into an existing object to extend its capabilities.
 
 You're certainly not expected to fully understand the hows and whys of the
